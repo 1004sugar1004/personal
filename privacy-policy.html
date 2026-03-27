@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보처리방침 — 증평 IB 탐험대</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #0f1f38;
+      --navy2:  #162a4a;
+      --gold:   #c8922a;
+      --gold2:  #e8b04b;
+      --cream:  #faf7f2;
+      --text:   #1e2a3a;
+      --muted:  #5a6a7a;
+      --border: #d9cfc2;
+      --accent: #c8922a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 20% 80%, rgba(200,146,42,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 80% 20%, rgba(200,146,42,.12) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* decorative compass lines */
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 39px, rgba(255,255,255,.03) 40px),
+        repeating-linear-gradient(90deg,  transparent, transparent 39px, rgba(255,255,255,.03) 40px);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,146,42,.15);
+      border: 1px solid rgba(200,146,42,.4);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--gold2);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: .3; }
+    }
+
+    header h1 {
+      font-family: 'Nanum Myeongjo', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
+    }
+
+    header h1 span {
+      color: var(--gold2);
+    }
+
+    .header-sub {
+      font-size: .88rem;
+      color: rgba(255,255,255,.5);
+      font-weight: 300;
+      margin-top: 14px;
+    }
+
+    .header-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── TOC STRIP ── */
+    .toc-strip {
+      background: var(--navy2);
+      border-bottom: 1px solid rgba(200,146,42,.2);
+      padding: 16px 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .toc-inner {
+      display: inline-flex;
+      gap: 8px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .toc-strip a {
+      display: inline-block;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      transition: all .2s;
+      letter-spacing: .02em;
+    }
+
+    .toc-strip a:hover {
+      color: var(--gold2);
+      border-color: rgba(200,146,42,.5);
+      background: rgba(200,146,42,.08);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── INTRO BOX ── */
+    .intro-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px 12px 12px 4px;
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.9;
+      position: relative;
+    }
+
+    .intro-box::before {
+      content: '🧭';
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      font-size: 1.4rem;
+      background: var(--cream);
+      padding: 0 6px;
+    }
+
+    /* ── ARTICLE (SECTION) ── */
+    article {
+      margin-bottom: 40px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow .25s;
+    }
+
+    article:hover {
+      box-shadow: 0 6px 30px rgba(15,31,56,.07);
+    }
+
+    .article-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #fdfbf8 0%, #fff 100%);
+    }
+
+    .article-num {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold2);
+      font-family: 'Nanum Myeongjo', serif;
+      font-weight: 700;
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: -.02em;
+    }
+
+    .article-title {
+      font-family: 'Nanum Myeongjo', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.01em;
+    }
+
+    .article-body {
+      padding: 24px 28px;
+      font-size: .9rem;
+      line-height: 1.9;
+      color: #3a4a5a;
+    }
+
+    .article-body p { margin-bottom: 14px; }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    /* numbered paragraphs */
+    .para-num {
+      display: block;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    /* bullet list */
+    .info-list {
+      list-style: none;
+      margin: 10px 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #f8f5f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .88rem;
+    }
+
+    .info-list li::before {
+      content: '▸';
+      color: var(--gold);
+      font-size: .9rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* highlight chip */
+    .chip {
+      display: inline-block;
+      background: rgba(200,146,42,.1);
+      border: 1px solid rgba(200,146,42,.3);
+      color: var(--gold);
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .chip.safe {
+      background: rgba(34,197,94,.08);
+      border-color: rgba(34,197,94,.3);
+      color: #15803d;
+    }
+
+    .chip.warn {
+      background: rgba(239,68,68,.07);
+      border-color: rgba(239,68,68,.25);
+      color: #b91c1c;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 32px;
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,146,42,.2) 0%, transparent 70%);
+    }
+
+    .contact-card h3 {
+      color: var(--gold2);
+      font-family: 'Nanum Myeongjo', serif;
+      font-size: .95rem;
+      margin-bottom: 20px;
+      letter-spacing: .02em;
+    }
+
+    .contact-rows {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-label {
+      font-size: .73rem;
+      color: rgba(255,255,255,.4);
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      color: #fff;
+      font-size: .92rem;
+      font-weight: 500;
+    }
+
+    .contact-value a {
+      color: var(--gold2);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px 48px;
+      font-size: .78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong { color: var(--navy); }
+
+    /* ── SCROLL ANIMATION ── */
+    article, .intro-box {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .5s forwards;
+    }
+
+    .intro-box { animation-delay: .1s; }
+    article:nth-child(1) { animation-delay: .15s; }
+    article:nth-child(2) { animation-delay: .2s; }
+    article:nth-child(3) { animation-delay: .25s; }
+    article:nth-child(4) { animation-delay: .3s; }
+    article:nth-child(5) { animation-delay: .35s; }
+    article:nth-child(6) { animation-delay: .4s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .article-body { padding: 20px 18px; }
+      .article-header { padding: 18px 18px; }
+      .contact-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      개인정보처리방침
+    </div>
+    <h1>증평 IB <span>탐험대</span></h1>
+    <p class="header-sub">Jeungpyeong IB Explorer · 개인정보 보호법 제30조에 의거하여 공개합니다</p>
+    <div class="header-divider"></div>
+  </div>
+</header>
+
+<!-- TOC STRIP -->
+<nav class="toc-strip" aria-label="목차">
+  <div class="toc-inner">
+    <a href="#art1">제1조 처리 목적</a>
+    <a href="#art2">제2조 보유 기간</a>
+    <a href="#art3">제3조 수집 항목</a>
+    <a href="#art4">제4조 아동 처리</a>
+    <a href="#art5">제5조 안전성 확보</a>
+    <a href="#art6">제6조 보호책임자</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    증평 IB 탐험대(이하 '본 서비스')은(는) 개인정보 보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+  </div>
+
+  <!-- 제1조 -->
+  <article id="art1">
+    <div class="article-header">
+      <div class="article-num">1조</div>
+      <div class="article-title">개인정보의 처리 목적</div>
+    </div>
+    <div class="article-body">
+      <p>본 서비스는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
+      <ul class="info-list">
+        <li><strong>학생 회원 관리</strong>&nbsp;— 학급 구성원 식별, 실시간 랭킹 시스템 운영</li>
+        <li><strong>서비스 제공</strong>&nbsp;— 학습 콘텐츠 제공, 학습 이력 및 XP 기록 저장</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 제2조 -->
+  <article id="art2">
+    <div class="article-header">
+      <div class="article-num">2조</div>
+      <div class="article-title">개인정보의 처리 및 보유기간</div>
+    </div>
+    <div class="article-body">
+      <p><span class="para-num">①</span>본 서비스는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+      <p><span class="para-num">②</span>각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.</p>
+      <ul class="info-list">
+        <li><strong>보유 기간</strong>&nbsp;— 해당 학년도 종료 시(익년 2월 말) 또는 학생의 전학·졸업 시까지</li>
+        <li><strong>파기 시점</strong>&nbsp;— 보유 기간 종료 후 지체 없이 파기</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 제3조 -->
+  <article id="art3">
+    <div class="article-header">
+      <div class="article-num">3조</div>
+      <div class="article-title">처리하는 개인정보 항목</div>
+    </div>
+    <div class="article-body">
+      <p>본 서비스는 학습 지원을 위해 필요한 최소한의 개인정보만을 수집합니다.</p>
+      <ul class="info-list">
+        <li>
+          <span class="chip safe">수집</span>
+          이름, 학년, 반, 구글 계정 정보(이메일), 학습 점수(XP)
+        </li>
+        <li>
+          <span class="chip warn">미수집</span>
+          주민등록번호, 주소, 전화번호 등 민감 정보
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 제4조 -->
+  <article id="art4">
+    <div class="article-header">
+      <div class="article-num">4조</div>
+      <div class="article-title">만 14세 미만 아동의 개인정보 처리</div>
+    </div>
+    <div class="article-body">
+      <p><span class="para-num">①</span>본 서비스는 만 14세 미만 아동의 개인정보를 처리하기 위하여 학교 가정통신문 또는 가입 단계에서 법정대리인의 동의를 확인합니다.</p>
+      <p><span class="para-num">②</span>법정대리인이 동의하지 않는 경우, 서비스 이용이 제한될 수 있습니다.</p>
+    </div>
+  </article>
+
+  <!-- 제5조 -->
+  <article id="art5">
+    <div class="article-header">
+      <div class="article-num">5조</div>
+      <div class="article-title">개인정보의 안전성 확보조치</div>
+    </div>
+    <div class="article-body">
+      <p>본 서비스는 보안 인증을 획득한 전문 클라우드 플랫폼(<strong>Google Firebase</strong>)을 기반으로 운영되며, 전 구간 보안 통신(<strong>HTTPS</strong>)을 사용하여 데이터를 암호화하여 전송합니다.</p>
+      <ul class="info-list">
+        <li><span class="chip safe">클라우드</span> Google Firebase — 보안 인증 획득 플랫폼 사용</li>
+        <li><span class="chip safe">암호화</span> HTTPS 전 구간 보안 통신 적용</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 제6조 -->
+  <article id="art6">
+    <div class="article-header">
+      <div class="article-num">6조</div>
+      <div class="article-title">개인정보 보호책임자</div>
+    </div>
+    <div class="article-body">
+      <p>본 서비스는 개인정보 처리에 관한 업무를 총괄해서 책임지는 보호책임자를 다음과 같이 지정하고 있습니다.</p>
+      <div class="contact-card">
+        <h3>개인정보 보호책임자 정보</h3>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="contact-label">성명</span>
+            <span class="contact-value">김혜진 (개발자)</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">소속</span>
+            <span class="contact-value">증평초등학교</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">직위</span>
+            <span class="contact-value">교사</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">연락처</span>
+            <span class="contact-value">
+              <a href="mailto:1004sugar1004@gmail.com">1004sugar1004@gmail.com</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>증평 IB 탐험대</strong> · 증평초등학교</p>
+  <p style="margin-top:6px">본 방침은 서비스 운영에 따라 변경될 수 있으며, 변경 시 서비스 내 공지를 통해 안내합니다.</p>
+</footer>
+
+</body>
+</html>
